@@ -1,137 +1,265 @@
 import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Container, Button, Grid } from "@mui/material";
+import { keyframes } from "@mui/system";
+
+const float = keyframes`
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+`;
 
 const HomePage = () => {
   return (
-    <Box
-      sx={{
-        position: "relative",
-        height: "100vh",
-        width: "100%",
-        overflow: "hidden",
-      }}
-    >
-      {/* Background Video */}
-      <Box
-        component="video"
-        autoPlay
-        loop
-        muted
-        playsInline
-        src="/schoolhero.mp4"
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: -2,
-        }}
-      />
-
-      {/* Navbar */}
+    <>
+      {/* ========== FIRST SECTION (Glass About) ========== */}
       <Box
         sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
+          minHeight: "100vh",
           display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
-          px: { xs: 3, md: 8 },
-          py: 2,
-          color: "#fff",
-         // backdropFilter: "blur(6px)",
-        //  backgroundColor: "rgba(0, 0, 0, 0)",
+          justifyContent: "center",
+          px: 2,
+          py: 10,
+          backgroundImage: "url('/bg10.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
-        {/* Logo */}
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Container maxWidth="md">
           <Box
-            component="img"
-            src="/schoollo.png"
-            alt="School Logo"
             sx={{
-              height: { xs: 75, md: 85 },
-              width: "auto",
-              //filter: "drop-shadow(0px 3px 8px rgba(0,0,0,0.6))",
-              //mixBlendMode: "multiply",
-
+              backdropFilter: "blur(25px) saturate(180%)",
+              WebkitBackdropFilter: "blur(25px) saturate(180%)",
+              background: "rgba(255, 255, 255, 0.05)",
+              borderRadius: "28px",
+              border: "1px solid rgba(255,255,255,0.3)",
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
+              p: { xs: 4, md: 6 },
+              animation: `${float} 8s ease-in-out infinite`,
+              color: "#111",
             }}
-          />
-        </Box>
+          >
+            <Typography
+              variant="h3"
+              sx={{
+                fontWeight: 600,
+                mb: 4,
+                textAlign: "center",
+                letterSpacing: "1px",
+              }}
+            >
+              About Our School
+            </Typography>
 
-        {/* Menu */}
-        <Box sx={{ display: "flex", gap: 4 }}>
-          <Typography sx={{ cursor: "pointer", fontWeight: 500 }}>
-            Home
-          </Typography>
-          <Typography sx={{ cursor: "pointer", fontWeight: 500 }}>
-            About
-          </Typography>
-          <Typography sx={{ cursor: "pointer", fontWeight: 500 }}>
-            Admissions
-          </Typography>
-          <Typography sx={{ cursor: "pointer", fontWeight: 500 }}>
-            Contact
-          </Typography>
-        </Box>
+            <Typography
+              sx={{
+                fontStyle: "italic",
+                textAlign: "center",
+                fontSize: "1.1rem",
+                mb: 4,
+                opacity: 0.9,
+              }}
+            >
+              “Education breeds Confidence. Confidence breeds Hope. And Hope breeds Peace.”
+            </Typography>
+
+            <Typography sx={{ lineHeight: 1.8, mb: 3 }}>
+              Horizon Valley School is a brand new institution built with a
+              progressive vision to blend academic excellence with sporting
+              achievement and holistic development.
+            </Typography>
+
+            <Typography sx={{ lineHeight: 1.8, mb: 3 }}>
+              Inspired by 23 years of educational excellence since 2002, we are
+              committed to nurturing confident individuals prepared for global
+              opportunities and future leadership.
+            </Typography>
+
+            <Typography sx={{ lineHeight: 1.8, mb: 5 }}>
+              With visionary leadership, passionate faculty, and strong parental
+              collaboration, we continue building a legacy rooted in innovation,
+              discipline, and excellence.
+            </Typography>
+
+            <Box sx={{ textAlign: "center" }}>
+              <Button
+                sx={{
+                  px: 5,
+                  py: 1.4,
+                  borderRadius: "30px",
+                  background: "rgba(255,255,255,0.25)",
+                  backdropFilter: "blur(10px)",
+                  color: "#fff",
+                  border: "1px solid rgba(255,255,255,0.4)",
+                  fontWeight: 500,
+                  textTransform: "none",
+                  "&:hover": {
+                    background: "rgba(255,255,255,0.35)",
+                  },
+                }}
+              >
+                Learn More
+              </Button>
+            </Box>
+          </Box>
+        </Container>
       </Box>
-
-      {/* Hero Content */}
       <Box
         sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          textAlign: "center",
-          color: "#fff",
+          position: "relative",
+          backgroundImage: "url('/bg01.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          py: { xs: 8, md: 12 },
           px: 2,
+          overflow: "hidden",
         }}
       >
-        <Typography
-          variant="h2"
+        {/* Soft overlay for neat look */}
+        <Box
           sx={{
-            fontWeight: 700,
-            mb: 2,
-            fontSize: { xs: "2.2rem", md: "3.5rem" },
+            position: "absolute",
+            inset: 0,
+            background: "rgba(255,255,255,0.6)",
+            backdropFilter: "blur(3px)",
           }}
-        >
-          Welcome to Our School
-        </Typography>
+        />
 
-        <Typography
-          sx={{
-            fontSize: { xs: "1rem", md: "1.3rem" },
-            mb: 4,
-            opacity: 0.9,
-          }}
-        >
-          Shaping Future Leaders for Tomorrow
-        </Typography>
+        <Container maxWidth="lg" sx={{ position: "relative" }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 4,
+              justifyContent: "space-between",
+              flexWrap: "nowrap",
+            }}
+          >
+            {/* Card 1 */}
+            <Box
+              sx={{
+                flex: 1,
+                p: 5,
+                borderRadius: "28px",
+                backdropFilter: "blur(20px) saturate(160%)",
+                WebkitBackdropFilter: "blur(20px) saturate(160%)",
+                background: "rgba(255, 255, 255, 0.25)",
+                border: "1px solid rgba(255,255,255,0.4)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                transition: "0.4s",
+                display: "flex",
+                flexDirection: "column",
+                "&:hover": {
+                  transform: "translateY(-10px)",
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.25)",
+                },
+              }}
+            >
+              <Typography variant="h5" sx={{ fontWeight: 600, mb: 2, color: "#111" }}>
+                Horizon Valley Society
+              </Typography>
 
-        <Button
-          variant="contained"
-          sx={{
-            backgroundColor: "#ffcc00",
-            color: "#000",
-            px: 5,
-            py: 1.5,
-            fontWeight: 600,
-            borderRadius: "30px",
-            boxShadow: "0px 8px 20px rgba(0,0,0,0.3)",
-            "&:hover": {
-              backgroundColor: "#e6b800",
-            },
-          }}
-        >
-          Apply Now
-        </Button>
+              <Box
+                sx={{
+                  height: "2px",
+                  width: "60px",
+                  background: "linear-gradient(to right, #111, transparent)",
+                  mb: 3,
+                }}
+              />
+
+              <Typography sx={{ lineHeight: 1.8, color: "#222" }}>
+                Horizon Valley Society is dedicated to educational excellence,
+                character development, and leadership growth. We aim to build
+                responsible individuals prepared to contribute positively to society.
+              </Typography>
+            </Box>
+
+
+            {/* Card 2 */}
+            <Box
+              sx={{
+                flex: 1,
+                p: 5,
+                borderRadius: "28px",
+                backdropFilter: "blur(20px) saturate(160%)",
+                WebkitBackdropFilter: "blur(20px) saturate(160%)",
+                background: "rgba(255, 255, 255, 0.25)",
+                border: "1px solid rgba(255,255,255,0.4)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                transition: "0.4s",
+                display: "flex",
+                flexDirection: "column",
+                "&:hover": {
+                  transform: "translateY(-10px)",
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.25)",
+                },
+              }}
+            >
+              <Typography variant="h5" sx={{ fontWeight: 600, mb: 2, color: "#111" }}>
+                Vision
+              </Typography>
+
+              <Box
+                sx={{
+                  height: "2px",
+                  width: "60px",
+                  background: "linear-gradient(to right, #111, transparent)",
+                  mb: 3,
+                }}
+              />
+
+              <Typography sx={{ lineHeight: 1.8, color: "#222" }}>
+                Our vision is to inspire young minds to achieve beyond boundaries
+                by fostering confidence, global awareness, and strong ethical values.
+              </Typography>
+            </Box>
+
+
+            {/* Card 3 */}
+            <Box
+              sx={{
+                flex: 1,
+                p: 5,
+                borderRadius: "28px",
+                backdropFilter: "blur(20px) saturate(160%)",
+                WebkitBackdropFilter: "blur(20px) saturate(160%)",
+                background: "rgba(255, 255, 255, 0.25)",
+                border: "1px solid rgba(255,255,255,0.4)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                transition: "0.4s",
+                display: "flex",
+                flexDirection: "column",
+                "&:hover": {
+                  transform: "translateY(-10px)",
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.25)",
+                },
+              }}
+            >
+              <Typography variant="h5" sx={{ fontWeight: 600, mb: 2, color: "#111" }}>
+                Mission
+              </Typography>
+
+              <Box
+                sx={{
+                  height: "2px",
+                  width: "60px",
+                  background: "linear-gradient(to right, #111, transparent)",
+                  mb: 3,
+                }}
+              />
+
+              <Typography sx={{ lineHeight: 1.8, color: "#222" }}>
+                Our mission is to provide a dynamic learning environment that
+                promotes academic excellence, creativity, integrity, and holistic growth.
+              </Typography>
+            </Box>
+
+          </Box>
+        </Container>
       </Box>
-    </Box>
+
+    </>
   );
 };
 
