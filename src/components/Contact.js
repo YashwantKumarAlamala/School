@@ -237,30 +237,30 @@ const Contact = () => {
             </Grid>
           </Card>
         </Grid>
-       {/* MAP */}
-<Box sx={{ mt: 4 }}>
-  <Card
-    sx={{
-      height: { xs: 300, sm: 350, md: 418 },
-      width: { xs: "136%", md: 1260 },
-      maxWidth: "120%",
-      mx: "auto",
-      borderRadius: 6,
-      overflow: "hidden",
-      boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
-    }}
-  >
-    <iframe
-      title="Horizon Valley School Location"
-      src="https://www.google.com/maps?q=14.672444,77.551778&z=18&t=k&output=embed"
-      width="100%"
-      height="100%"
-      style={{ border: 0 }}
-      loading="lazy"
-      allowFullScreen
-    />
-  </Card>
-</Box>
+        {/* MAP */}
+        <Box sx={{ mt: 4 }}>
+          <Card
+            sx={{
+              height: { xs: 300, sm: 350, md: 418 },
+              width: { xs: "136%", md: 1260 },
+              maxWidth: "120%",
+              mx: "auto",
+              borderRadius: 6,
+              overflow: "hidden",
+              boxShadow: "0 15px 40px rgba(0,0,0,0.08)",
+            }}
+          >
+            <iframe
+              title="Horizon Valley School Location"
+              src="https://www.google.com/maps?q=14.672444,77.551778&z=18&t=k&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+            />
+          </Card>
+        </Box>
 
       </Grid>
     </Box>

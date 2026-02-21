@@ -13,7 +13,7 @@ const Academics = () => {
     >
       <Box
         component="video"
-        src="/comingsoon.mp4"
+        src="/videos/comingsoon.mp4"
         autoPlay
         loop
         muted

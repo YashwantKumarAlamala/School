@@ -21,7 +21,7 @@ const HeroSection = () => {
         loop
         muted
         playsInline
-        src="/schoolhero.mp4"
+        src="/videos/schoolhero.mp4"
         sx={{
           position: "absolute",
           top: 0,

@@ -41,7 +41,7 @@ const NavbarDesktop = ({ menuItems, navigate }) => (
   >
     <Box
       component="img"
-      src="/schoollo.png"
+      src="logo/logo.jpg"
       sx={{ height: 65, cursor: "pointer" }}
       onClick={() => navigate("/")}
     />
@@ -100,7 +100,7 @@ const NavbarMobile = ({
       >
         <Box
           component="img"
-          src="/schoollo.png"
+          src="logo/logo.jpg"
           sx={{ height: 50, cursor: "pointer" }}
           onClick={() => navigate("/")}
         />

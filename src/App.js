@@ -6,12 +6,12 @@ import HeroSection from "./essentials/HeroSection";
 import HomePage from "./components/HomePage";
 import Footer from "./essentials/Footer";
 
-import AboutUs from "./components/AboutUs";
 import Academics from "./components/Academics";
 import Admissions from "./components/Admissions";
 import Campuses from "./components/Campuses";
 import CampusLife from "./components/CampusLife";
 import Contact from "./components/Contact";
+import MainAboutUs from "./components/MainAboutUs";
 
 function App() {
   return (
@@ -30,10 +30,10 @@ function App() {
           }
         />
 
-        {/* ABOUT US ROUTE */}
-        <Route path="/about" element={<AboutUs />} />
+        {/* ABOUT US ROUTE (FIXED) */}
+        <Route path="/about" element={<MainAboutUs />} />
 
-        {/* Other Routes (optional for now) */}
+        {/* Other Routes */}
         <Route path="/academics" element={<Academics />} />
         <Route path="/admissions" element={<Admissions />} />
         <Route path="/campuses" element={<Campuses />} />
