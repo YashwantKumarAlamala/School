@@ -11,7 +11,7 @@ import Admissions from "./components/Admissions";
 import Campuses from "./components/Campuses";
 import CampusLife from "./components/CampusLife";
 import Contact from "./components/Contact";
-import MainAboutUs from "./components/MainAboutUs";
+import MainAboutUs from "./components/About/MainAboutUs";
 
 function App() {
   return (

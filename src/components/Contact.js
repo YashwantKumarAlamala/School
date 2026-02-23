@@ -14,6 +14,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 const Contact = () => {
   return (
+    
     <Box
       sx={{
         pt: { xs: 22, md: 26 },
@@ -22,6 +23,50 @@ const Contact = () => {
         backgroundColor: "#f8fafc",
       }}
     >
+      {/* ================= TOP CTA SECTION ================= */}
+<Box
+  sx={{
+    maxWidth: "1200px",
+    mx: "auto",
+    mb: 10,
+    textAlign: "center",
+  }}
+>
+  <Box
+    sx={{
+      background: "linear-gradient(135deg, #1e3a8a, #1e40af)",
+      color: "#fff",
+      borderRadius: "32px",
+      py: { xs: 8, md: 10 },
+      px: { xs: 4, md: 8 },
+      boxShadow: "0 25px 60px rgba(30,58,138,0.25)",
+    }}
+  >
+    <Typography
+      variant="h3"
+      fontWeight={700}
+      sx={{
+        mb: 2,
+        fontSize: { xs: "22px", md: "35px" },
+        lineHeight: 1.3,
+      }}
+    >
+      Ready to Give Your Child the Best CBSE Education?
+    </Typography>
+
+    <Typography
+      sx={{
+        opacity: 0.9,
+        fontSize: { xs: "15px", md: "18px" },
+        maxWidth: "800px",
+        mx: "auto",
+      }}
+    >
+      Schedule a campus visit and discover why Horizon Valley is the top choice
+      for CBSE education in Anantapur.
+    </Typography>
+  </Box>
+</Box>
       <Grid
         container
         spacing={6}
