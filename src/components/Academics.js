@@ -1,8 +1,13 @@
 import React from "react";
 import { Box, Typography, } from "@mui/material";
-import SchoolIcon from "@mui/icons-material/School";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import ScienceIcon from "@mui/icons-material/Science";
+import SchoolIcon from "@mui/icons-material/School";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import PublicIcon from "@mui/icons-material/Public";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
 const Academics = () => {
   return (
@@ -202,84 +207,116 @@ const Academics = () => {
         </Box>
       </Box>
 
-      {/* WHY CHOOSE CBSE SECTION */}
+     {/* WHY CHOOSE CBSE SECTION */}
+<Box
+  sx={{
+    px: { xs: 3, md: 8 },
+    py: { xs: 8, md: 12 },
+    backgroundColor: "#f8fafc",
+  }}
+>
+  <Box sx={{ textAlign: "center", mb: 8 }}>
+    <Typography variant="h4" fontWeight={800} sx={{ mb: 2 }}>
+      Why Choose CBSE
+    </Typography>
+    <Typography sx={{ color: "#64748b" }}>
+      Benefits of the CBSE Programme
+    </Typography>
+  </Box>
+
+  <Box
+    sx={{
+      display: "grid",
+      gridTemplateColumns: {
+        xs: "1fr",
+        sm: "1fr 1fr",
+        md: "repeat(3, 1fr)",
+      },
+      gap: 4,
+    }}
+  >
+    {[
+      {
+        title: "Strong Academic Foundation",
+        desc: "Balanced syllabus aligned with NEET, JEE, Olympiads & NTSE for competitive success.",
+        icon: <SchoolIcon />,
+      },
+      {
+        title: "Student-Friendly & Concept-Driven",
+        desc: "Logical progression, simple language, and activity-based understanding for deeper learning.",
+        icon: <PsychologyIcon />,
+      },
+      {
+        title: "National & Global Recognition",
+        desc: "Accepted across top Indian and international universities worldwide.",
+        icon: <PublicIcon />,
+      },
+      {
+        title: "Holistic Development",
+        desc: "Covers sports, communication, values, leadership, and creativity for well-rounded growth.",
+        icon: <EmojiEventsIcon />,
+      },
+      {
+        title: "Stress-Free Assessments",
+        desc: "Continuous evaluation for consistent growth without unnecessary pressure.",
+        icon: <AssignmentTurnedInIcon />,
+      },
+      {
+        title: "Ideal for Competitive Exams",
+        desc: "Curriculum mirrors national exam patterns for long-term academic advantage.",
+        icon: <TrendingUpIcon />,
+      },
+    ].map((item, index) => (
       <Box
+        key={index}
         sx={{
-          px: { xs: 3, md: 8 },
-          py: { xs: 8, md: 12 },
-          backgroundColor: "#f8fafc",
+          backgroundColor: "#ffffff",
+          borderRadius: "20px",
+          p: 4,
+          boxShadow: "0 15px 35px rgba(0,0,0,0.06)",
+          transition: "0.3s",
+          textAlign: "center",
+          "&:hover": {
+            transform: "translateY(-6px)",
+            boxShadow: "0 20px 45px rgba(0,0,0,0.1)",
+          },
         }}
       >
-        <Box sx={{ textAlign: "center", mb: 8 }}>
-          <Typography variant="h4" fontWeight={800} sx={{ mb: 2 }}>
-            Why Choose CBSE
-          </Typography>
-          <Typography sx={{ color: "#64748b" }}>
-            Benefits of the CBSE Programme
-          </Typography>
-        </Box>
-
+        {/* Icon Circle */}
         <Box
           sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "1fr 1fr",
-              md: "repeat(3, 1fr)",
-            },
-            gap: 4,
+            width: 55,
+            height: 55,
+            mx: "auto",
+            mb: 3,
+            borderRadius: "50%",
+            backgroundColor: "#e2e8f0",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#1e293b",
           }}
         >
-          {[
-            {
-              title: "Strong Academic Foundation",
-              desc: "Balanced syllabus aligned with NEET, JEE, Olympiads & NTSE for competitive success.",
-            },
-            {
-              title: "Student-Friendly & Concept-Driven",
-              desc: "Logical progression, simple language, and activity-based understanding for deeper learning.",
-            },
-            {
-              title: "National & Global Recognition",
-              desc: "Accepted across top Indian and international universities worldwide.",
-            },
-            {
-              title: "Holistic Development",
-              desc: "Covers sports, communication, values, leadership, and creativity for well-rounded growth.",
-            },
-            {
-              title: "Stress-Free Assessments",
-              desc: "Continuous evaluation for consistent growth without unnecessary pressure.",
-            },
-            {
-              title: "Ideal for Competitive Exams",
-              desc: "Curriculum mirrors national exam patterns for long-term academic advantage.",
-            },
-          ].map((item, index) => (
-            <Box
-              key={index}
-              sx={{
-                backgroundColor: "#ffffff",
-                borderRadius: "20px",
-                p: 4,
-                boxShadow: "0 15px 35px rgba(0,0,0,0.06)",
-                transition: "0.3s",
-                "&:hover": {
-                  transform: "translateY(-6px)",
-                  boxShadow: "0 20px 45px rgba(0,0,0,0.1)",
-                },
-              }}
-            >
-              <Typography fontWeight={700} sx={{ mb: 2 }}>
-                {item.title}
-              </Typography>
-              <Typography sx={{ color: "#64748b", fontSize: "14px", lineHeight: 1.8 }}>
-                {item.desc}
-              </Typography>
-            </Box>
-          ))}
+          {item.icon}
         </Box>
+
+        <Typography fontWeight={700} sx={{ mb: 2 }}>
+          {item.title}
+        </Typography>
+
+        <Typography
+          sx={{
+            color: "#64748b",
+            fontSize: "14px",
+            lineHeight: 1.8,
+          }}
+        >
+          {item.desc}
+        </Typography>
       </Box>
+    ))}
+  </Box>
+</Box>
       {/* COMPLETE ACADEMIC JOURNEY SECTION */}
       <Box
         sx={{
@@ -433,113 +470,103 @@ const Academics = () => {
             We don't ask children to sit still and listen.
           </Typography>
 
-          {/* Line 2 with Highlighted Words */}
-          <Typography
-            sx={{
-              fontSize: { xs: "18px", md: "22px" },
-              lineHeight: 2,
-              fontWeight: 600,
-            }}
-          >
-            We ask them to{" "}
-            <Box component="span" sx={{ color: "#2563eb", fontWeight: 800 }}>
-              imagine
-            </Box>
-            ,{" "}
-            <Box component="span" sx={{ color: "#2563eb", fontWeight: 800 }}>
-              build
-            </Box>
-            ,{" "}
-            <Box component="span" sx={{ color: "#2563eb", fontWeight: 800 }}>
-              question
-            </Box>
-            ,{" "}
-            <Box component="span" sx={{ color: "#2563eb", fontWeight: 800 }}>
-              explore
-            </Box>
-            ,{" "}
-            <Box component="span" sx={{ color: "#2563eb", fontWeight: 800 }}>
-              experiment
-            </Box>
-            ,{" "}
-            <Box component="span" sx={{ color: "#2563eb", fontWeight: 800 }}>
-              create
-            </Box>
-            ,{" "}
-            <Box component="span" sx={{ color: "#2563eb", fontWeight: 800 }}>
-              innovate
-            </Box>
-            ,{" "}
-            <Box component="span" sx={{ color: "#2563eb", fontWeight: 800 }}>
-              communicate
-            </Box>
-            , and{" "}
-            <Box component="span" sx={{ color: "#2563eb", fontWeight: 800 }}>
-              grow
-            </Box>
-            .
-          </Typography>
-        </Box>
-        {/* GRADIENT STATEMENT CARDS */}
-<Box
+          {/* Line 2 with Gradient Highlighted Words */}
+<Typography
   sx={{
-    px: { xs: 3, md: 8 },
-    pb: { xs: 10, md: 14 },
+    fontSize: { xs: "18px", md: "22px" },
+    lineHeight: 2,
+    fontWeight: 600,
+    color: "#334155",
   }}
 >
-  <Box
-    sx={{
-      maxWidth: "1100px",
-      mx: "auto",
-      display: "grid",
-      gridTemplateColumns: {
-        xs: "1fr",
-        md: "repeat(3, 1fr)",
-      },
-      gap: 4,
-    }}
-  >
-    {[
-      {
-        text: "This is learning that stays.",
-        gradient: "linear-gradient(135deg, #2563eb, #7c3aed)",
-      },
-      {
-        text: "This is understanding that lasts.",
-        gradient: "linear-gradient(135deg, #06b6d4, #10b981)",
-      },
-      {
-        text: "This is education for life — not just exams.",
-        gradient: "linear-gradient(135deg, #f59e0b, #ef4444)",
-      },
-    ].map((item, index) => (
-      <Box
-        key={index}
-        sx={{
-          borderRadius: "24px",
-          p: { xs: 4, md: 5 },
-          color: "#ffffff",
-          fontWeight: 700,
-          fontSize: { xs: "18px", md: "20px" },
-          lineHeight: 1.6,
-          background: item.gradient,
-          boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-          transition: "0.4s ease",
-          textAlign: "center",
-          "&:hover": {
-            transform: "translateY(-8px)",
-            boxShadow: "0 30px 60px rgba(0,0,0,0.2)",
-          },
-        }}
-      >
-        {item.text}
-      </Box>
-    ))}
-  </Box>
+  We ask them to{" "}
+  {[
+    "imagine",
+    "build",
+    "question",
+    "explore",
+    "experiment",
+    "create",
+    "innovate",
+    "communicate",
+    "grow",
+  ].map((word, index, arr) => (
+    <Box
+      key={word}
+      component="span"
+      sx={{
+        fontWeight: 800,
+        background:
+          "linear-gradient(90deg, #2563eb, #06b6d4, #10b981, #f59e0b, #ef4444)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+      }}
+    >
+      {word}
+      {index < arr.length - 1 ? ", " : "."}
+    </Box>
+  ))}
+</Typography>
+        </Box>
+     {/* LIGHT TONED GRADIENT STATEMENT CARDS */}
+<Box
+  sx={{
+    maxWidth: "1100px",
+    mx: "auto",
+    mt: { xs: 8, md: 10 }, // spacing from text above
+    display: "grid",
+    gridTemplateColumns: {
+      xs: "1fr",
+      md: "repeat(3, 1fr)",
+    },
+    gap: 4,
+  }}
+>
+  {[
+    {
+      text: "This is learning that stays.",
+      gradient: "linear-gradient(135deg, #dbeafe, #ede9fe)",
+    },
+    {
+      text: "This is understanding that lasts.",
+      gradient: "linear-gradient(135deg, #cffafe, #d1fae5)",
+    },
+    {
+      text: "This is education for life — not just exams.",
+      gradient: "linear-gradient(135deg, #fef3c7, #fee2e2)",
+    },
+  ].map((item, index) => (
+    <Box
+      key={index}
+      sx={{
+        borderRadius: "24px",
+        p: { xs: 4, md: 5 },
+        color: "#1e293b",
+        fontWeight: 600,
+        fontSize: { xs: "18px", md: "20px" },
+        lineHeight: 1.6,
+        background: item.gradient,
+        boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
+        transition: "0.3s ease",
+        textAlign: "center",
+        display: "flex",              // makes equal height feel balanced
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "140px",           // ensures equal height
+        "&:hover": {
+          transform: "translateY(-6px)",
+          boxShadow: "0 15px 35px rgba(0,0,0,0.12)",
+        },
+      }}
+    >
+      {item.text}
+    </Box>
+  ))}
+</Box>
 </Box>
       </Box>
       
-    </Box>
+   
   );
 };
 
