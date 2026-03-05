@@ -14,7 +14,7 @@ const eventsData = [
   { title: "Annual Day", image: "/Events/events.jpg" },
   { title: "Art & Craft", image: "/Events/art.jpg" },
   { title: "Yoga Day", image: "/Events/yoga.jpg" },
-  { title: "Science Exhibition", image: "/Events/Events1.jpg" },
+  { title: "Science Exhibition", image: "/Facilities/sports.jpg" },
   { title: "Sports Day", image: "/Facilities/sports.jpg" },
 ];
 
@@ -149,7 +149,7 @@ const CampusLife = () => {
                 sx={{
                   borderRadius: "20px",
                   overflow: "hidden",
-                  boxShadow: "0 15px 40px rgba(0,0,0,0)",
+                  boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
                   position: "relative",
                 }}
               >
@@ -172,7 +172,7 @@ const CampusLife = () => {
                     bottom: 0,
                     width: "100%",
                     background:
-                      "linear-gradient(to top, rgba(0,0,0,0), transparent)",
+                      "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
                     p: 3,
                   }}
                 >
