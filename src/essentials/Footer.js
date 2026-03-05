@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid, Divider, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, Grid, Divider } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
@@ -54,8 +54,8 @@ const quickLinks = [
 ];
 
 export default function Footer() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  //const theme = useTheme();
+  //const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const navigate = useNavigate();
 
   return (

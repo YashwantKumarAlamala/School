@@ -14,7 +14,7 @@ const eventsData = [
   { title: "Annual Day", image: "/Events/events.jpg" },
   { title: "Art & Craft", image: "/Events/art.jpg" },
   { title: "Yoga Day", image: "/Events/yoga.jpg" },
-  { title: "Science Exhibition", image: "/Facilities/sports.jpg" },
+  { title: "Science Exhibition", image: "/Events/events1.jpg" },
   { title: "Sports Day", image: "/Facilities/sports.jpg" },
 ];
 

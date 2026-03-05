@@ -393,7 +393,7 @@ const Academics = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   color: "#fbb123",
-                  color: "#0f172a",
+                  
                 }}
               >
                 {item.icon}
