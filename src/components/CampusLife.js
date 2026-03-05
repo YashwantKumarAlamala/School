@@ -42,7 +42,7 @@ const CampusLife = () => {
   return (
     <Box
       sx={{
-        pt: { xs: 18, md: 20 },
+        pt: { xs: 26, md: 25 },
         pb: 12,
         px: { xs: 3, md: 6 },
         backgroundColor: "#f8fafc",
