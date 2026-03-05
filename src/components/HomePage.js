@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -8,6 +8,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { keyframes } from "@mui/system";
+import AdmissionFormModal from "./AdmissionFormModal";
 
 /* ================= FLOAT ANIMATION ================= */
 
@@ -19,7 +20,7 @@ const float = keyframes`
 
 /* ================= DESKTOP VERSION ================= */
 
-const HomeDesktop = () => {
+const HomeDesktop = ({ onApply }) => {
   return (
     <>
      {/* FIRST SECTION */}
@@ -40,8 +41,8 @@ const HomeDesktop = () => {
     sx={{
       position: "absolute",
       inset: 0,
-      backgroundImage: "url('/School9.jpg')",
-      backgroundSize: "standard",
+      backgroundImage: "url('/logo/S-2.jpeg')",
+      backgroundSize: "cover",
       backgroundPosition: "center",
       filter: "brightness(0.6) blur(1px)",
       transform: "scale(1.05)", // prevents white edges from blur
@@ -65,7 +66,7 @@ const HomeDesktop = () => {
     >
       <Typography
         variant="h3"
-        sx={{ fontWeight: 600, mb: 4, textAlign: "center", letterSpacing: 1 }}
+        sx={{ fontWeight: 700, mb: 4, textAlign: "center", letterSpacing: 1, fontFamily: "'Nunito', sans-serif", color: "#15253d" }}
       >
         About Our School
       </Typography>
@@ -73,12 +74,12 @@ const HomeDesktop = () => {
       {/* Image */}
       <Box
         component="img"
-        src="/School9.jpg"
+        src="/logo/S-2.jpeg"
         alt="School"
         sx={{
           width: "100%",
           height: "380px",
-          objectFit: "standard",
+          objectFit: "cover",
           borderRadius: "18px",
           mb: 3,
           boxShadow: "0 8px 25px rgba(0,0,0,0.3)",
@@ -102,7 +103,7 @@ const HomeDesktop = () => {
       </Typography>
 
       <Typography sx={{ lineHeight: 1.8, mb: 3 }}>
-        Inspired by 23 years of educational excellence since 2002, we are committed to nurturing confident individuals prepared for global opportunities and future leadership.
+        Inspired by 27 years of educational excellence since 1998, we are committed to nurturing confident individuals prepared for global opportunities and future leadership.
       </Typography>
 
       <Typography sx={{ lineHeight: 1.8, mb: 5 }}>
@@ -111,17 +112,18 @@ const HomeDesktop = () => {
 
       <Box sx={{ textAlign: "center" }}>
         <Button
+          onClick={onApply}
           sx={{
             px: 5,
             py: 1.4,
             borderRadius: "30px",
-            background: "rgba(255,255,255,0.25)",
-            backdropFilter: "blur(10px)",
-            color: "#fff",
-            border: "1px solid rgba(255,255,255,0.4)",
+            backgroundColor: "#fbb123",
+            color: "#15253d",
+            fontFamily: "'Nunito', sans-serif",
+            fontWeight: 700,
             textTransform: "none",
             "&:hover": {
-              background: "rgba(255,255,255,0.35)",
+              backgroundColor: "#f68e1e",
             },
           }}
         >
@@ -194,7 +196,7 @@ const HomeDesktop = () => {
                   },
                 }}
               >
-                <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
+                <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, fontFamily: "'Nunito', sans-serif", color: "#15253d" }}>
                   {card.title}
                 </Typography>
 
@@ -202,7 +204,7 @@ const HomeDesktop = () => {
                   sx={{
                     height: "2px",
                     width: "60px",
-                    background: "linear-gradient(to right, #111, transparent)",
+                    background: "linear-gradient(to right, #fbb123, transparent)",
                     mb: 3,
                   }}
                 />
@@ -222,7 +224,7 @@ const HomeDesktop = () => {
 
 /* ================= MOBILE VERSION ================= */
 
-const HomeMobile = () => {
+const HomeMobile = ({ onApply }) => {
   return (
     <>
       {/* FIRST SECTION */}
@@ -234,8 +236,8 @@ const HomeMobile = () => {
           justifyContent: "center",
           px: 2,
           py: 8,
-          backgroundImage: "url('/School9.jpg')",
-          backgroundSize: "standard",
+          backgroundImage: "url('/logo/S-2.jpeg')",
+          backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
@@ -259,12 +261,12 @@ const HomeMobile = () => {
             {/* IMAGE ADDED HERE */}
             <Box
               component="img"
-              src="/School9.jpg"
+              src="/logo/S-2.jpeg"
               alt="School"
               sx={{
                 width: "100%",
                 height: "280px",
-                objectFit: "standard",
+                objectFit: "cover",
                 borderRadius: "18px",
                 mb: 3,
                 boxShadow: "0 8px 25px rgba(0,0,0,0.3)",
@@ -283,16 +285,18 @@ const HomeMobile = () => {
 
             <Button
               fullWidth
+              onClick={onApply}
               sx={{
                 py: 1.3,
                 borderRadius: "28px",
-                background: "rgba(255,255,255,0.3)",
-                backdropFilter: "blur(10px)",
-                color: "#fff",
+                backgroundColor: "#fbb123",
+                color: "#15253d",
+                fontFamily: "'Nunito', sans-serif",
+                fontWeight: 700,
                 textTransform: "none",
                 fontSize: "1rem",
                 "&:hover": {
-                  background: "rgba(255,255,255,0.4)",
+                  backgroundColor: "#f68e1e",
                 },
               }}
             >
@@ -389,8 +393,17 @@ const HomeMobile = () => {
 const HomePage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [modalOpen, setModalOpen] = useState(false);
 
-  return isMobile ? <HomeMobile /> : <HomeDesktop />;
+  return (
+    <>
+      <AdmissionFormModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      {isMobile
+        ? <HomeMobile onApply={() => setModalOpen(true)} />
+        : <HomeDesktop onApply={() => setModalOpen(true)} />
+      }
+    </>
+  );
 };
 
 export default HomePage;

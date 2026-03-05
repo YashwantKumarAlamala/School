@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -13,11 +13,11 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 /* ================= DESKTOP NAVBAR ================= */
 
-const NavbarDesktop = ({ menuItems, navigate }) => (
+const NavbarDesktop = ({ menuItems, navigate, currentPath }) => (
   <Box
     sx={{
       position: "fixed",
@@ -31,37 +31,43 @@ const NavbarDesktop = ({ menuItems, navigate }) => (
       px: 6,
       py: 1.5,
       zIndex: 1300,
-      backdropFilter: "blur(20px) saturate(180%)",
-      WebkitBackdropFilter: "blur(20px) saturate(180%)",
-      background: "rgba(255, 255, 255, 0.64)",
+      backdropFilter: "none",
+      WebkitBackdropFilter: "none",
+      background: "#ffffff",
       borderRadius: "40px",
-      border: "1px solid rgba(255,255,255,0.7)",
+      border: "1px solid rgba(21,37,61,0.08)",
       boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
     }}
   >
     <Box
       component="img"
-      src="logo/logo.jpg"
-      sx={{ height: 65, cursor: "pointer" }}
-      onClick={() => navigate("/")}
+      src="/logo/logo.jpg"
+      alt="Horizon Valley School"
+      sx={{ height: 110, cursor: "pointer" }}
+      onClick={() => { navigate("/"); window.scrollTo(0, 0); }}
     />
 
     <Box sx={{ display: "flex", gap: 4 }}>
-      {menuItems.map((item) => (
-        <Typography
-          key={item.label}
-          onClick={() => navigate(item.path)}
-          sx={{
-            cursor: "pointer",
-            fontWeight: 500,
-            color: "#111",
-            transition: "0.3s",
-            "&:hover": { opacity: 0.7 },
-          }}
-        >
-          {item.label}
-        </Typography>
-      ))}
+      {menuItems.map((item) => {
+        const isActive = currentPath === item.path;
+        return (
+          <Typography
+            key={item.label}
+            onClick={() => navigate(item.path)}
+            sx={{
+              cursor: "pointer",
+              fontWeight: isActive ? 800 : 700,
+              color: isActive ? "#fbb123" : "#15253d",
+              borderBottom: isActive ? "2px solid #fbb123" : "2px solid transparent",
+              pb: 0.3,
+              transition: "0.3s",
+              "&:hover": { opacity: 0.7 },
+            }}
+          >
+            {item.label}
+          </Typography>
+        );
+      })}
     </Box>
   </Box>
 );
@@ -73,6 +79,7 @@ const NavbarMobile = ({
   mobileOpen,
   toggleDrawer,
   navigate,
+  currentPath,
 }) => {
   return (
     <>
@@ -90,22 +97,23 @@ const NavbarMobile = ({
           px: 3,
           py: 1.2,
           zIndex: 1400,
-          backdropFilter: "blur(20px) saturate(180%)",
-          WebkitBackdropFilter: "blur(20px) saturate(180%)",
-          background: "rgba(255, 255, 255, 0.64)",
+          backdropFilter: "none",
+          WebkitBackdropFilter: "none",
+          background: "#ffffff",
           borderRadius: "40px",
-          border: "1px solid rgba(255,255,255,0.7)",
+          border: "1px solid rgba(21,37,61,0.08)",
           boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
         }}
       >
         <Box
           component="img"
-          src="logo/logo.jpg"
-          sx={{ height: 50, cursor: "pointer" }}
-          onClick={() => navigate("/")}
+          src="/logo/logo.jpg"
+          alt="Horizon Valley School"
+          sx={{ height: 65, cursor: "pointer" }}
+          onClick={() => { navigate("/"); window.scrollTo(0, 0); }}
         />
 
-        <IconButton onClick={toggleDrawer} sx={{ color: "#111" }}>
+        <IconButton onClick={toggleDrawer} sx={{ color: "#15253d" }} aria-label={mobileOpen ? "Close menu" : "Open menu"}>
           {mobileOpen ? (
             <CloseIcon fontSize="large" />
           ) : (
@@ -152,38 +160,41 @@ const NavbarMobile = ({
           }}
         >
           <List sx={{ px: 3 }}>
-            {menuItems.map((item, index) => (
-              <Box key={item.label}>
-                <ListItem disablePadding>
-                  <ListItemText
-                    primary={item.label}
-                    onClick={() => {
-                      navigate(item.path);
-                      toggleDrawer();
-                    }}
-                    primaryTypographyProps={{
-                      sx: {
-                        textAlign: "center",
-                        py: 2,
-                        fontSize: "1.2rem",
-                        fontWeight: 600,
-                        color: "#111",
-                        cursor: "pointer",
-                        borderRadius: "18px",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          backgroundColor: "rgba(255,255,255,0.6)",
-                          transform: "scale(1.03)",
+            {menuItems.map((item, index) => {
+              const isActive = currentPath === item.path;
+              return (
+                <Box key={item.label}>
+                  <ListItem disablePadding>
+                    <ListItemText
+                      primary={item.label}
+                      onClick={() => {
+                        navigate(item.path);
+                        toggleDrawer();
+                      }}
+                      primaryTypographyProps={{
+                        sx: {
+                          textAlign: "center",
+                          py: 2,
+                          fontSize: "1.2rem",
+                          fontWeight: isActive ? 700 : 600,
+                          color: isActive ? "#fbb123" : "#15253d",
+                          cursor: "pointer",
+                          borderRadius: "18px",
+                          transition: "all 0.3s ease",
+                          "&:hover": {
+                            backgroundColor: "rgba(255,255,255,0.6)",
+                            transform: "scale(1.03)",
+                          },
                         },
-                      },
-                    }}
-                  />
-                </ListItem>
-                {index !== menuItems.length - 1 && (
-                  <Divider sx={{ opacity: 0.3 }} />
-                )}
-              </Box>
-            ))}
+                      }}
+                    />
+                  </ListItem>
+                  {index !== menuItems.length - 1 && (
+                    <Divider sx={{ opacity: 0.3 }} />
+                  )}
+                </Box>
+              );
+            })}
           </List>
         </Box>
       </Fade>
@@ -198,6 +209,7 @@ const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
     { label: "Home", path: "/" },
@@ -209,7 +221,18 @@ const Navbar = () => {
     { label: "Contact", path: "/contact" },
   ];
 
-  const toggleDrawer = () => setMobileOpen(!mobileOpen);
+  const toggleDrawer = () => setMobileOpen((prev) => !prev);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  // Close drawer on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   return isMobile ? (
     <NavbarMobile
@@ -217,9 +240,10 @@ const Navbar = () => {
       mobileOpen={mobileOpen}
       toggleDrawer={toggleDrawer}
       navigate={navigate}
+      currentPath={location.pathname}
     />
   ) : (
-    <NavbarDesktop menuItems={menuItems} navigate={navigate} />
+    <NavbarDesktop menuItems={menuItems} navigate={navigate} currentPath={location.pathname} />
   );
 };
 

@@ -17,7 +17,7 @@ const Academics = () => {
       <Box
         sx={{
           position: "relative",
-          backgroundColor: "#0f172a",
+          backgroundColor: "#15253d",
           pt: 24,
           pb: 13,
           px: 6,
@@ -183,11 +183,11 @@ const Academics = () => {
                         width: 24,
                         height: 24,
                         borderRadius: "50%",
-                        backgroundColor: "#16a34a",
+                        backgroundColor: "#fbb123",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        color: "#fff",
+                        color: "#15253d",
                         fontSize: "13px",
                         fontWeight: 700,
                       }}
@@ -290,11 +290,11 @@ const Academics = () => {
             mx: "auto",
             mb: 3,
             borderRadius: "50%",
-            backgroundColor: "#e2e8f0",
+            backgroundColor: "#fbb123",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "#1e293b",
+            color: "#15253d",
           }}
         >
           {item.icon}
@@ -388,10 +388,11 @@ const Academics = () => {
                   mx: "auto",
                   mb: 3,
                   borderRadius: "50%",
-                  backgroundColor: "#f1f5f9",
+                  backgroundColor: "#15253d",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  color: "#fbb123",
                   color: "#0f172a",
                 }}
               >
@@ -448,7 +449,7 @@ const Academics = () => {
             <Box
               component="span"
               sx={{
-                background: "linear-gradient(90deg, #2563eb, #06b6d4, #10b981, #f59e0b, #ef4444)",
+                background: "linear-gradient(90deg, #fbb123, #f68e1e, #867661)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -497,7 +498,7 @@ const Academics = () => {
       sx={{
         fontWeight: 800,
         background:
-          "linear-gradient(90deg, #2563eb, #06b6d4, #10b981, #f59e0b, #ef4444)",
+          "linear-gradient(90deg, #fbb123, #f68e1e, #867661)",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
       }}
