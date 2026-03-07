@@ -334,9 +334,7 @@ export default function Academics() {
       {/* ── PROMISE STRIP ────────────────────────────────────────────────── */}
       <Box sx={{ backgroundColor: "#fff", py: { xs: 8, md: 10 }, px: { xs: 3, md: 8 } }}>
         <Box sx={{ maxWidth: "900px", mx: "auto", textAlign: "center" }} className="scroll-reveal">
-          <Typography sx={{ color: "#f68e1e", fontFamily: "'Nunito', sans-serif", fontWeight: 700, fontSize: "0.75rem", letterSpacing: "0.16em", mb: 2 }}>
-            OUR PROMISE
-          </Typography>
+        
           <Typography variant="h2" sx={{ fontFamily: "'Nunito', sans-serif", fontWeight: 900, color: "#15253d", fontSize: { xs: "24px", md: "38px" }, lineHeight: 1.3, mb: 3 }}>
             Every Child Deserves to{" "}
             <Box component="span" sx={{ color: "#fbb123" }}>Shine</Box>
@@ -360,12 +358,7 @@ export default function Academics() {
 
           {/* Header */}
           <Box sx={{ textAlign: "center", mb: 8 }} className="scroll-reveal">
-            <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1, backgroundColor: "rgba(251,177,35,0.12)", border: "1px solid rgba(251,177,35,0.3)", px: 2.5, py: 0.7, borderRadius: "30px", mb: 2 }}>
-              <Box sx={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#fbb123", animation: "glowPulse 2s ease-in-out infinite" }} />
-              <Typography sx={{ fontFamily: "'Nunito', sans-serif", fontWeight: 700, fontSize: "0.72rem", letterSpacing: "0.16em", color: "#fbb123" }}>
-                IN PARTNERSHIP WITH COGNOSPACE
-              </Typography>
-            </Box>
+          
             <Typography variant="h2" sx={{ fontFamily: "'Nunito', sans-serif", fontWeight: 900, color: "#fff", fontSize: { xs: "26px", md: "42px" }, lineHeight: 1.2, mb: 2 }}>
               Experiential Learning —{" "}
               <Box component="span" sx={{ background: "linear-gradient(90deg, #fbb123, #f68e1e)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
@@ -399,7 +392,7 @@ export default function Academics() {
                   A Lab Where Every Child Becomes a Maker
                 </Typography>
                 <Typography sx={{ color: "rgba(255,255,255,0.68)", fontSize: { xs: "15px", md: "16px" }, lineHeight: 1.9, fontFamily: "'Playfair Display', serif", mb: 3 }}>
-                  Our state-of-the-art Composite Skill Lab — powered by CognoSpace — brings over 220 simulation models to life. From science experiments to robotics and design thinking, students don't just read about concepts — they live them.
+                  Our state-of-the-art Composite Skill Lab —  brings over 220 simulation models to life. From science experiments to robotics and design thinking, students don't just read about concepts — they live them.
                 </Typography>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
                   {["600+ curriculum-aligned activities", "STEAM integration across all grades", "Robotics, Engineering & Design Thinking", "AR/VR-enhanced modules", "Proprietary kits with lab manuals"].map((item, i) => (
