@@ -19,6 +19,28 @@ const pulseRing = keyframes`
   0%   { transform: scale(1);   opacity: 0.6; }
   100% { transform: scale(1.18); opacity: 0; }
 `;
+const fadeInUp = keyframes`
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+const fadeInDown = keyframes`
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+const scaleIn = keyframes`
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+`;
+const orbDrift = keyframes`
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(20px, -15px) scale(1.05); }
+  66%       { transform: translate(-15px, 10px) scale(0.97); }
+`;
+const shimmerLine = keyframes`
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
 
 const stats = [
   { value: "27+", label: "Years of Legacy" },
@@ -70,7 +92,10 @@ export default function AboutUs() {
         <Box sx={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(251,177,35,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
         <Box sx={{ position: "absolute", bottom: -80, left: -80, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(246,142,30,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-        <Typography sx={{
+        {/* Extra animated orbs */}
+        <Box sx={{ position: "absolute", top: "30%", left: "5%", width: 180, height: 180, borderRadius: "50%", background: "radial-gradient(circle, rgba(251,177,35,0.08) 0%, transparent 70%)", animation: `${orbDrift} 10s ease-in-out infinite 1s`, pointerEvents: "none" }} />
+
+        <Typography className="anim-fade-down" sx={{
           display: "inline-block", backgroundColor: "rgba(251,177,35,0.15)",
           color: "#fbb123", px: 2.5, py: 0.6, borderRadius: "30px",
           fontSize: "0.78rem", fontFamily: "'Nunito', sans-serif",
@@ -80,7 +105,7 @@ export default function AboutUs() {
           CBSE AFFILIATED · ANANTAPUR
         </Typography>
 
-        <Typography variant="h1" sx={{
+        <Typography variant="h1" className="anim-fade-up delay-1" sx={{
           fontFamily: "'Nunito', sans-serif", fontWeight: 900,
           color: "#fff", fontSize: { xs: "30px", md: "54px" },
           lineHeight: 1.15, mb: 3, maxWidth: "800px", mx: "auto",
@@ -89,7 +114,7 @@ export default function AboutUs() {
           <Box component="span" sx={{ color: "#fbb123" }}>Destined to Shine</Box>
         </Typography>
 
-        <Typography sx={{
+        <Typography className="anim-fade-up delay-2" sx={{
           color: "rgba(255,255,255,0.72)", fontSize: { xs: "15px", md: "19px" },
           maxWidth: "600px", mx: "auto", lineHeight: 1.8,
           fontFamily: "'Playfair Display', serif", fontStyle: "italic", mb: 5,
@@ -98,7 +123,7 @@ export default function AboutUs() {
           <Box component="span" sx={{ display: "block", fontSize: "0.8em", mt: 0.5, opacity: 0.7 }}>— W.B. Yeats</Box>
         </Typography>
 
-        <Button variant="contained" onClick={() => setModalOpen(true)} sx={{
+        <Button className="anim-fade-up delay-3" variant="contained" onClick={() => setModalOpen(true)} sx={{
           backgroundColor: "#fbb123", color: "#15253d",
           px: 5, py: 1.6, fontWeight: 800,
           fontFamily: "'Nunito', sans-serif", borderRadius: "30px",
@@ -112,7 +137,7 @@ export default function AboutUs() {
       </Box>
 
       {/* ── HERO IMAGE OVERLAP ── */}
-      <Box sx={{
+      <Box className="scroll-reveal-scale" sx={{
         width: { xs: "90%", md: "82%" }, height: { xs: "260px", md: "500px" },
         mx: "auto", mt: { xs: "-80px", md: "-120px" },
         backgroundImage: "url('/logo/school-1.jpeg')",
@@ -307,16 +332,15 @@ export default function AboutUs() {
           </Box>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }, gap: { xs: 3, md: 4 } }}>
             {facilities.map((f, i) => (
-              <Box key={i} className={`scroll-reveal delay-${i + 1}`} sx={{
+              <Box key={i} className={`scroll-reveal-zoom delay-${i + 1}`} sx={{
                 height: { xs: "240px", md: "340px" },
                 borderRadius: "24px", position: "relative", overflow: "hidden",
                 backgroundImage: `url(${f.img})`, backgroundSize: "cover", backgroundPosition: "center",
                 boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
-                transition: "transform 0.4s ease, box-shadow 0.4s ease",
-                perspective: "800px",
+                transition: "transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease",
                 "&:hover": {
-                  transform: "translateY(-12px) rotateX(3deg) scale(1.02)",
-                  boxShadow: "0 0 0 2px #fbb123, 0 30px 70px rgba(0,0,0,0.55)",
+                  transform: "translateY(-14px) scale(1.03)",
+                  boxShadow: "0 0 0 3px #fbb123, 0 30px 70px rgba(0,0,0,0.55)",
                 },
               }}>
                 {/* shimmer overlay on hover */}

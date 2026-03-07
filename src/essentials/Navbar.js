@@ -14,6 +14,12 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate, useLocation } from "react-router-dom";
+import { keyframes } from "@mui/system";
+
+const navSlideDown = keyframes`
+  from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+`;
 
 /* ================= DESKTOP NAVBAR ================= */
 
@@ -31,19 +37,20 @@ const NavbarDesktop = ({ menuItems, navigate, currentPath }) => (
       px: 6,
       py: 1.5,
       zIndex: 1300,
-      backdropFilter: "none",
-      WebkitBackdropFilter: "none",
       background: "#ffffff",
       borderRadius: "40px",
       border: "1px solid rgba(21,37,61,0.08)",
       boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
+      animation: `${navSlideDown} 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards`,
+      transition: "box-shadow 0.3s ease",
+      "&:hover": { boxShadow: "0 12px 40px rgba(21,37,61,0.14)" },
     }}
   >
     <Box
       component="img"
       src="/logo/logo.jpg"
       alt="Horizon Valley School"
-      sx={{ height: 110, cursor: "pointer" }}
+      sx={{ height: 110, cursor: "pointer", transition: "transform 0.3s ease", "&:hover": { transform: "scale(1.04)" } }}
       onClick={() => { navigate("/"); window.scrollTo(0, 0); }}
     />
 
@@ -57,11 +64,23 @@ const NavbarDesktop = ({ menuItems, navigate, currentPath }) => (
             sx={{
               cursor: "pointer",
               fontWeight: isActive ? 800 : 700,
+              fontFamily: "'Nunito', sans-serif",
               color: isActive ? "#fbb123" : "#15253d",
-              borderBottom: isActive ? "2px solid #fbb123" : "2px solid transparent",
-              pb: 0.3,
-              transition: "0.3s",
-              "&:hover": { opacity: 0.7 },
+              position: "relative",
+              pb: 0.5,
+              transition: "color 0.25s ease",
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                bottom: 0, left: 0,
+                width: isActive ? "100%" : "0%",
+                height: "2px",
+                background: "linear-gradient(90deg, #fbb123, #f68e1e)",
+                borderRadius: "2px",
+                transition: "width 0.3s ease",
+              },
+              "&:hover": { color: "#fbb123" },
+              "&:hover::after": { width: "100%" },
             }}
           >
             {item.label}
@@ -177,6 +196,7 @@ const NavbarMobile = ({
                           py: 2,
                           fontSize: "1.2rem",
                           fontWeight: isActive ? 700 : 600,
+                          fontFamily: "'Nunito', sans-serif",
                           color: isActive ? "#fbb123" : "#15253d",
                           cursor: "pointer",
                           borderRadius: "18px",

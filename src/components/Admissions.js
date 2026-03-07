@@ -205,17 +205,17 @@ export default function Admissions() {
 
       {/* ── HERO ── */}
       <Box sx={{ background: "linear-gradient(160deg, #15253d 0%, #1e3a5f 55%, #15253d 100%)", pt: { xs: 18, md: 22 }, pb: { xs: 12, md: 16 }, px: { xs: 3, md: 6 }, textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <Box sx={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(251,177,35,0.14) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <Box sx={{ position: "absolute", bottom: -80, left: -80, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(246,142,30,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <Box sx={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(251,177,35,0.14) 0%, transparent 70%)", animation: "floatY 8s ease-in-out infinite", pointerEvents: "none" }} />
+        <Box sx={{ position: "absolute", bottom: -80, left: -80, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(246,142,30,0.1) 0%, transparent 70%)", animation: "floatY 11s ease-in-out infinite 2s", pointerEvents: "none" }} />
 
-        <Typography sx={{ display: "inline-block", backgroundColor: "rgba(251,177,35,0.15)", color: "#fbb123", px: 2.5, py: 0.6, borderRadius: "30px", fontSize: "0.78rem", fontFamily: "'Nunito', sans-serif", fontWeight: 700, letterSpacing: "0.14em", mb: 3, border: "1px solid rgba(251,177,35,0.3)" }}>
+        <Typography className="anim-fade-down" sx={{ display: "inline-block", backgroundColor: "rgba(251,177,35,0.15)", color: "#fbb123", px: 2.5, py: 0.6, borderRadius: "30px", fontSize: "0.78rem", fontFamily: "'Nunito', sans-serif", fontWeight: 700, letterSpacing: "0.14em", mb: 3, border: "1px solid rgba(251,177,35,0.3)" }}>
           ADMISSIONS OPEN · 2026–27
         </Typography>
-        <Typography variant="h1" sx={{ fontFamily: "'Nunito', sans-serif", fontWeight: 900, color: "#fff", fontSize: { xs: "28px", md: "52px" }, lineHeight: 1.15, mb: 3, maxWidth: "820px", mx: "auto" }}>
+        <Typography variant="h1" className="anim-fade-up delay-1" sx={{ fontFamily: "'Nunito', sans-serif", fontWeight: 900, color: "#fff", fontSize: { xs: "28px", md: "52px" }, lineHeight: 1.15, mb: 3, maxWidth: "820px", mx: "auto" }}>
           Secure Your Child's Seat at{" "}
           <Box component="span" sx={{ color: "#fbb123" }}>Horizon Valley School</Box>
         </Typography>
-        <Typography sx={{ color: "rgba(255,255,255,0.72)", fontSize: { xs: "15px", md: "18px" }, maxWidth: "580px", mx: "auto", lineHeight: 1.8, fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>
+        <Typography className="anim-fade-up delay-2" sx={{ color: "rgba(255,255,255,0.72)", fontSize: { xs: "15px", md: "18px" }, maxWidth: "580px", mx: "auto", lineHeight: 1.8, fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>
           "The best investment you can make is in your child's education. Begin that journey with us."
         </Typography>
       </Box>
@@ -248,7 +248,7 @@ export default function Admissions() {
           </Box>
           <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" }, gap: 3 }}>
             {steps.map((s, i) => (
-              <Box key={i} sx={{ textAlign: "center", p: { xs: 3, md: 4 }, borderRadius: "20px", backgroundColor: "#f8f6f2", border: "1px solid rgba(21,37,61,0.05)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-4px)", boxShadow: "0 16px 40px rgba(21,37,61,0.1)", borderColor: "#fbb123" } }}>
+              <Box key={i} className={`scroll-reveal-zoom delay-${i + 1}`} sx={{ textAlign: "center", p: { xs: 3, md: 4 }, borderRadius: "20px", backgroundColor: "#f8f6f2", border: "1px solid rgba(21,37,61,0.05)", transition: "all 0.35s cubic-bezier(0.34,1.56,0.64,1)", "&:hover": { transform: "translateY(-6px) scale(1.02)", boxShadow: "0 16px 40px rgba(21,37,61,0.1)", borderColor: "#fbb123" } }}>
                 <Box sx={{ width: 52, height: 52, borderRadius: "50%", backgroundColor: "#fbb123", color: "#15253d", display: "flex", alignItems: "center", justifyContent: "center", mx: "auto", mb: 2 }}>
                   {s.icon}
                 </Box>

@@ -84,17 +84,17 @@ export default function Contact() {
         pt: { xs: 18, md: 22 }, pb: { xs: 10, md: 14 }, px: { xs: 3, md: 6 },
         textAlign: "center", position: "relative", overflow: "hidden",
       }}>
-        <Box sx={{ position: "absolute", top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(251,177,35,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <Box sx={{ position: "absolute", bottom: -60, left: -60, width: 220, height: 220, borderRadius: "50%", background: "radial-gradient(circle, rgba(246,142,30,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <Box sx={{ position: "absolute", top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(251,177,35,0.15) 0%, transparent 70%)", animation: "floatY 8s ease-in-out infinite", pointerEvents: "none" }} />
+        <Box sx={{ position: "absolute", bottom: -60, left: -60, width: 220, height: 220, borderRadius: "50%", background: "radial-gradient(circle, rgba(246,142,30,0.12) 0%, transparent 70%)", animation: "floatY 11s ease-in-out infinite 2s", pointerEvents: "none" }} />
 
-        <Typography sx={{ display: "inline-block", backgroundColor: "rgba(251,177,35,0.15)", color: "#fbb123", px: 2.5, py: 0.6, borderRadius: "30px", fontSize: "0.78rem", fontFamily: "'Nunito', sans-serif", fontWeight: 700, letterSpacing: "0.14em", mb: 3, border: "1px solid rgba(251,177,35,0.3)" }}>
+        <Typography className="anim-fade-down" sx={{ display: "inline-block", backgroundColor: "rgba(251,177,35,0.15)", color: "#fbb123", px: 2.5, py: 0.6, borderRadius: "30px", fontSize: "0.78rem", fontFamily: "'Nunito', sans-serif", fontWeight: 700, letterSpacing: "0.14em", mb: 3, border: "1px solid rgba(251,177,35,0.3)" }}>
           GET IN TOUCH
         </Typography>
-        <Typography variant="h2" sx={{ fontFamily: "'Nunito', sans-serif", fontWeight: 900, color: "#fff", fontSize: { xs: "28px", md: "46px" }, lineHeight: 1.2, mb: 2, maxWidth: "700px", mx: "auto" }}>
+        <Typography variant="h2" className="anim-fade-up delay-1" sx={{ fontFamily: "'Nunito', sans-serif", fontWeight: 900, color: "#fff", fontSize: { xs: "28px", md: "46px" }, lineHeight: 1.2, mb: 2, maxWidth: "700px", mx: "auto" }}>
           We're Here to{" "}
           <Box component="span" sx={{ color: "#fbb123" }}>Help</Box>
         </Typography>
-        <Typography sx={{ color: "rgba(255,255,255,0.7)", fontSize: { xs: "15px", md: "17px" }, maxWidth: "520px", mx: "auto", lineHeight: 1.8, fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>
+        <Typography className="anim-fade-up delay-2" sx={{ color: "rgba(255,255,255,0.7)", fontSize: { xs: "15px", md: "17px" }, maxWidth: "520px", mx: "auto", lineHeight: 1.8, fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>
           Have a question, feedback, or just want to say hello? Drop us a message and we'll respond promptly.
         </Typography>
       </Box>
@@ -115,7 +115,7 @@ export default function Contact() {
 
               <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
                 {contactItems.map((item, i) => (
-                  <Box key={i} className={`scroll-reveal delay-${i + 1}`} sx={{ display: "flex", alignItems: "flex-start", gap: 2, backgroundColor: "#fff", borderRadius: "16px", p: 2.5, boxShadow: "0 4px 20px rgba(21,37,61,0.06)", border: "1px solid rgba(21,37,61,0.05)", transition: "all 0.3s ease", "&:hover": { transform: "translateY(-2px)", boxShadow: "0 8px 28px rgba(21,37,61,0.1)" } }}>
+                  <Box key={i} className={`scroll-reveal delay-${i + 1}`} sx={{ display: "flex", alignItems: "flex-start", gap: 2, backgroundColor: "#fff", borderRadius: "16px", p: 2.5, boxShadow: "0 4px 20px rgba(21,37,61,0.06)", border: "1px solid rgba(21,37,61,0.05)", transition: "all 0.35s cubic-bezier(0.34,1.56,0.64,1)", "&:hover": { transform: "translateY(-4px) scale(1.01)", boxShadow: "0 0 0 2px #fbb123, 0 12px 32px rgba(251,177,35,0.15)" } }}>
                     <Box sx={{ width: 42, height: 42, borderRadius: "12px", backgroundColor: "#fbb123", color: "#15253d", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                       {item.icon}
                     </Box>
@@ -190,13 +190,13 @@ export default function Contact() {
       {/* ── MAP ── */}
       <Box sx={{ backgroundColor: "#15253d", py: { xs: 6, md: 8 }, px: { xs: 3, md: 6 } }}>
         <Box sx={{ maxWidth: "1100px", mx: "auto" }}>
-          <Typography sx={{ fontFamily: "'Nunito', sans-serif", fontWeight: 800, fontSize: { xs: "20px", md: "26px" }, color: "#fff", mb: 1, textAlign: "center" }}>
+          <Typography className="scroll-reveal" sx={{ fontFamily: "'Nunito', sans-serif", fontWeight: 800, fontSize: { xs: "20px", md: "26px" }, color: "#fff", mb: 1, textAlign: "center" }}>
             Find Us on the Map
           </Typography>
-          <Typography sx={{ color: "rgba(255,255,255,0.6)", textAlign: "center", mb: 4, fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>
+          <Typography className="scroll-reveal delay-1" sx={{ color: "rgba(255,255,255,0.6)", textAlign: "center", mb: 4, fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>
             Conveniently located in the heart of Anantapur
           </Typography>
-          <Box sx={{ borderRadius: "24px", overflow: "hidden", boxShadow: "0 25px 60px rgba(0,0,0,0.4)", border: "3px solid rgba(251,177,35,0.3)", height: { xs: 300, md: 420 } }}>
+          <Box className="scroll-reveal-scale delay-2" sx={{ borderRadius: "24px", overflow: "hidden", boxShadow: "0 25px 60px rgba(0,0,0,0.4)", border: "3px solid rgba(251,177,35,0.3)", height: { xs: 300, md: 420 }, transition: "box-shadow 0.4s ease", "&:hover": { boxShadow: "0 0 0 3px #fbb123, 0 30px 70px rgba(0,0,0,0.5)" } }}>
             <iframe title="Horizon Valley School Location" src="https://www.google.com/maps?q=14.672444,77.551778&z=18&t=m&output=embed" width="100%" height="100%" style={{ border: 0, display: "block" }} loading="lazy" allowFullScreen />
           </Box>
         </Box>
